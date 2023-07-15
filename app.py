@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
 import requests
 import json
+
+from flask import Flask, render_template, request
 
 from azureml.core import Workspace
 from azureml.core.authentication import ServicePrincipalAuthentication
