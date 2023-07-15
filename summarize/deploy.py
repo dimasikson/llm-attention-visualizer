@@ -1,5 +1,8 @@
+import os
 import json
 from datetime import datetime
+
+from dotenv import load_dotenv
 
 from azureml.core import Environment
 from azureml.core import Workspace
@@ -13,7 +16,6 @@ from azureml.core.authentication import ServicePrincipalAuthentication
 ENTRY_SCRIPT = "app.py"
 SOURCE_DIRECTORY = "."
 ENVIRONMENT_NAME = "myenv"
-ENVIRON_FILE = "./environ.json"
 REQUIREMENTS_FILE = "./requirements.txt"
 CPU_CORES = 2
 MEMORY_GB = 4
@@ -22,15 +24,16 @@ MEMORY_GB = 4
 if __name__ == "__main__":
 
     # Load environment variables
-    with open(ENVIRON_FILE) as f:
-        environment_variables = json.load(f)
-        tenant_id = environment_variables["tenant"]
-        resource_group = environment_variables["resource_group"]
-        subscription_id = environment_variables["subscription_id"]
-        service_principal_app_id = environment_variables["service_principal_app_id"]
-        service_principal_pwd = environment_variables["service_principal_pwd"]
-        azureml_workspace_name = environment_variables["azureml_workspace_name"]
-        service_name = environment_variables["summarize_service_name"]
+    load_dotenv()
+    tenant_id = os.getenv("TENANT")
+    resource_group = os.getenv("RESOURCE_GROUP")
+    subscription_id = os.getenv("SUBSCRIPTION_ID")
+    service_principal_app_id = os.getenv("SERVICE_PRINCIPAL_APP_ID")
+    service_principal_pwd = os.getenv("SERVICE_PRINCIPAL_PWD")
+    azureml_workspace_name = os.getenv("AZUREML_WORKSPACE_NAME")
+    service_name = os.getenv("SUMMARIZE_SERVICE_NAME")
+
+    print(datetime.now(), "Loaded environment variables.")
 
     # Authenticate with service principal
     service_principal = ServicePrincipalAuthentication(

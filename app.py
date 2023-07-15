@@ -1,5 +1,8 @@
+import os
 import requests
 import json
+
+from dotenv import load_dotenv
 
 from flask import Flask, render_template, request
 
@@ -11,15 +14,15 @@ app = Flask(__name__)
 
 
 # Load environment variables
-with open("./summarize/environ.json") as f:
-    environment_variables = json.load(f)
-    tenant_id = environment_variables["tenant"]
-    resource_group = environment_variables["resource_group"]
-    subscription_id = environment_variables["subscription_id"]
-    service_principal_app_id = environment_variables["service_principal_app_id"]
-    service_principal_pwd = environment_variables["service_principal_pwd"]
-    azureml_workspace_name = environment_variables["azureml_workspace_name"]
-    service_name = environment_variables["summarize_service_name"]
+load_dotenv()
+tenant_id = os.getenv("TENANT")
+resource_group = os.getenv("RESOURCE_GROUP")
+subscription_id = os.getenv("SUBSCRIPTION_ID")
+service_principal_app_id = os.getenv("SERVICE_PRINCIPAL_APP_ID")
+service_principal_pwd = os.getenv("SERVICE_PRINCIPAL_PWD")
+azureml_workspace_name = os.getenv("AZUREML_WORKSPACE_NAME")
+service_name = os.getenv("SUMMARIZE_SERVICE_NAME")
+
 
 # Authenticate with service principal
 service_principal = ServicePrincipalAuthentication(
