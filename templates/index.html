@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>
+        LLM Attention Visualizer
+    </title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <link rel="icon" href="static/icon.png">
+
+</head>
+<body>
+
+    <div id="content">
+
+        <h1>
+            Text Summarization LLM Attention Visualizer
+        </h1>
+
+        <div id="how-to-use" class="indented">
+            <h3>How to use:</h3>
+            <p class="indented">1. Paste your large text and click on the button. </p>
+            <p class="indented">2. Wait for the model to summarize your text. </p>
+            <p class="indented">3. Drag your mouse over the summary to see the attention visualization. </p>
+        </div>
+
+        <form class="prompt-form" id="prompt-form">
+            <textarea class="prompt-input" id="prompt-input" placeholder="Paste your large text here..." required></textarea>
+            <button type="submit" class="prompt-submit"></button>
+        </form>
+        
+        <div id="input-text" class="result-text-box" hidden>
+            <h2 class="h2-aligned">Input text:</h2>
+            <div id="input-text-content" class="text-content"></div>
+        </div>
+
+        <div id="summary-text" class="result-text-box" hidden>
+            <h2 class="h2-aligned">Summary:</h2>
+            <select name="attention-aggregation-granularity" id="attention-aggregation-granularity" class="styled-select">
+                <option value="tokn"> Aggregate over tokens </option>
+                <option value="sent"> Aggregate over sentences </option>
+            </select>
+
+            <div id="summary-text-content" class="text-content"></div>
+        </div>
+
+    </div>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>

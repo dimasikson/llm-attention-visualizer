@@ -8,6 +8,10 @@ class GenerateRequestProcessor(LLMRequestProcessor):
     def __init__(self, config, model):
         super().__init__(config)
         self.model = model
+        self.remove_tokens = [
+            self.config["BOS"],
+            self.config["EOS"],
+        ]
 
     def reduce_cross_attentions(self, cross_attentions):
         """
@@ -92,6 +96,12 @@ class GenerateRequestProcessor(LLMRequestProcessor):
 
         output_token_ids = model_output.sequences.squeeze(0).tolist()
         cross_attentions = self.reduce_cross_attentions(model_output.cross_attentions)
+
+        # NOTE: remove BOS and EOS tokens
+        output_token_ids = [token_id for token_id in output_token_ids if token_id not in self.remove_tokens]
+
+        # NOTE: cross attentions always start with the BOS token
+        cross_attentions = cross_attentions[1:]
 
         return {
             "token_ids": output_token_ids,

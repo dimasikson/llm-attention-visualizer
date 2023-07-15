@@ -1,4 +1,5 @@
 How to deploy this as a managed endpoint on Azure ML:
+0. `pip install azureml-sdk`
 1. Create a new Azure ML workspace, inside of a resource group
 2. Create a service principal, and give it contributor access to the resource group
 3. Create a file called `environ.json` in this directory. It should look like below, but with your own values:

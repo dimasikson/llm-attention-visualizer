@@ -36,7 +36,7 @@ if __name__ == "__main__":
     service_principal = ServicePrincipalAuthentication(
         tenant_id=tenant_id,
         service_principal_id=service_principal_app_id,
-        service_principal_pwd=service_principal_pwd
+        service_principal_password=service_principal_pwd
     )
 
     print(datetime.now(), "Service principal authenticated.")

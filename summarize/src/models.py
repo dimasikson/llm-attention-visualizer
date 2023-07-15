@@ -6,10 +6,9 @@ model_mapping = {
         "model": LongT5ForConditionalGeneration,
         "tokenizer": AutoTokenizer,
         "config": {
-            "token_start": 0,
-            "token_end": 1,
-            "token_unknown": 2,
-            "space_character": '▁'
+            "BOS": 0,
+            "EOS": 1,
+            "SPC": '▁'
         }
     }
 }

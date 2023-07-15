@@ -1,0 +1,107 @@
+:root {
+    --main-font-family: 'Inconsolata';
+    --main-width: 1000;
+    --main-width-px: 1000px;
+    --content-margin: 10;
+    --content-margin-px: 10px;
+}
+
+body, html {
+    margin: 0;
+    color: black;
+    background-color: #ffffff;
+    font-family: var(--main-font-family);
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body {
+    position: relative;
+}
+
+#content {
+    width: var(--main-width-px);
+    margin: var(--content-margin-px);
+    padding-left: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.prompt-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.prompt-input {
+    flex-grow: 1;
+    margin-right: 10px;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: auto;
+    min-height: 20px;
+    max-height: 100px;
+    font-size: 16px;
+}
+
+.prompt-submit {
+    width: 50px;
+    height: 50px;
+    padding-left: 5px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --%3E%3Csvg width='55px' height='50px' viewBox='0 -0.5 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18.455 9.8834L7.063 4.1434C6.76535 3.96928 6.40109 3.95274 6.08888 4.09916C5.77667 4.24558 5.55647 4.53621 5.5 4.8764C5.5039 4.98942 5.53114 5.10041 5.58 5.2024L7.749 10.4424C7.85786 10.7903 7.91711 11.1519 7.925 11.5164C7.91714 11.8809 7.85789 12.2425 7.749 12.5904L5.58 17.8304C5.53114 17.9324 5.5039 18.0434 5.5 18.1564C5.55687 18.4961 5.77703 18.7862 6.0889 18.9323C6.40078 19.0785 6.76456 19.062 7.062 18.8884L18.455 13.1484C19.0903 12.8533 19.4967 12.2164 19.4967 11.5159C19.4967 10.8154 19.0903 10.1785 18.455 9.8834V9.8834Z' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    transition: background-color 0.1s ease-in-out;
+}
+
+.prompt-submit:hover {
+    background-color: #f0f0f0;
+}
+
+.text-content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.indented {
+    padding-left: 15px;
+}
+
+.h2-aligned {
+    padding-left: 0px;
+}
+
+.result-text-box {
+    margin-top: 20px;
+}
+
+#summary-text {
+    position: relative;
+}
+
+#attention-aggregation-granularity {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.styled-select {
+    font-family: var(--main-font-family);
+    font-size: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 3px;
+    border-radius: 5px;
+}

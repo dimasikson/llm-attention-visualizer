@@ -45,6 +45,7 @@ class DecodeRequestProcessor(LLMRequestProcessor):
     def __init__(self, config, tokenizer):
         super().__init__(config)
         self.tokenizer = tokenizer
+        self.space_char = self.config["SPC"]
 
     def process(self, body):
         """
@@ -63,11 +64,14 @@ class DecodeRequestProcessor(LLMRequestProcessor):
 
         token_ids = body["token_ids"]
 
-        # decode token id's into the final text
-        token_text = self.tokenizer.decode(token_ids)
-
         # split text into tokens in text form
-        token_text_list = [self.tokenizer.decode(token_id) for token_id in token_ids]
+        token_text_list = self.tokenizer.convert_ids_to_tokens(token_ids)
+
+        # join tokens into a single string
+        token_text = "".join(token_text_list).replace(self.space_char, " ").strip()
+
+        # remove special tokens
+        token_text_list = [s.replace(self.space_char, "") for s in token_text_list]
 
         # map token id's to their corresponding indices in the final text
         token_mapping = map_substring_indices(token_text, token_text_list)
