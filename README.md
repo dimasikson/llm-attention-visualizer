@@ -1,6 +1,6 @@
 # attention-visualizer
 
-### Link: https://image-color-clustering.azurewebsites.net/
+### Link: https://attention-visualizer.azurewebsites.net/
 
 ## 1. What is this project?
 

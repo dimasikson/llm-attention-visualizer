@@ -1,10 +1,11 @@
 How to deploy this as a managed endpoint on Azure ML:
+
 0. `pip install -r requirements-dev.txt`
 1. Create a new Azure ML workspace, inside of a resource group
 2. Create a service principal, and give it contributor access to the resource group
 3. Create a file called `.env` in this directory. It should look like below, but with your own values:
 
-```json
+```
 TENANT=...                      // This is the tenant ID of the Azure AD tenant that the service principal is in
 RESOURCE_GROUP=...              // The name of the resource group that the Azure ML workspace is in
 SUBSCRIPTION_ID=...             // The subscription ID of the Azure subscription that the resource group is in
