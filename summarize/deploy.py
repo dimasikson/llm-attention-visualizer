@@ -17,8 +17,8 @@ ENTRY_SCRIPT = "app.py"
 SOURCE_DIRECTORY = "."
 ENVIRONMENT_NAME = "myenv"
 REQUIREMENTS_FILE = "./requirements.txt"
-CPU_CORES = 2
-MEMORY_GB = 4
+CPU_CORES = 1
+MEMORY_GB = 2
 
 
 if __name__ == "__main__":
